@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv/config");
 const cors = require("cors");
 const { json } = require("body-parser");
+const port = process.env.PORT || 3000;
 
 //middleware
 app.use(cors());
@@ -30,4 +31,6 @@ mongoose.connect(
 );
 
 //port
-app.listen(3000);
+app.listen(port, () => {
+	console.log(`Listening on http://localhost:${port}/`);
+});
