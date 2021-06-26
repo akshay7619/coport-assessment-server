@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
 
 //SUBMIT A STUDENT
 router.post("/", async (req, res) => {
-	console.log(req.body);
 	const student = new Students({
 		name: req.body.name,
 		fatherName: req.body.fatherName,
@@ -28,5 +27,15 @@ router.post("/", async (req, res) => {
 		res.json({ message: err });
 	}
 });
+
+//GET STUDENT BY ID
+router.get("/:studentId", async (req, res) => {
+	try {
+		const student = await Students.findById(req.params.studentId)
+		res.json(student)
+	} catch (error) {
+		res.json({ message: error })
+	}
+})
 
 module.exports = router;
