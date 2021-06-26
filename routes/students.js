@@ -36,6 +36,37 @@ router.get("/:studentId", async (req, res) => {
 	} catch (error) {
 		res.json({ message: error })
 	}
-})
+});
+
+
+//DELETE STUDENT BY ID
+router.delete("/:studentId", async (req, res) => {
+	try {
+		const removedStudent = await Students.remove({ _id: req.params.studentId })
+		res.json(removedStudent)
+	} catch (error) {
+		res.json({ message: error })
+	}
+});
+
+
+//UPDATE STUDENT
+router.patch("/:studentId", async (req, res) => {
+	try {
+		const updatedStudent = await Students.updateOne(
+			{ _id: req.params.studentId },
+			{
+				$set: {
+					name: req.body.name,
+					fatherName: req.body.fatherName,
+					motherName: req.body.motherName
+				}
+			}
+		);
+		res.json(updatedStudent);
+	} catch (error) {
+		res.json({ message: error });
+	}
+});
 
 module.exports = router;
