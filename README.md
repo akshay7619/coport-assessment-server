@@ -12,12 +12,12 @@ npm install
 
 ## Add your MongoDB connection string into .env file
 
-Create a new .env file in the root and add your mongoDB connection string as shown below.
+Create a new `.env` file in the root and add your mongoDB connection string as shown below.
 
 ```bash
 DB_CONNECTION = `mongodb://<user>:<password>@cluster0-shard-00-00.z1axh.mongodb.net:27017,cluster0-shard-00-01.z1axh.mongodb.net:27017,cluster0-shard-00-02.z1axh.mongodb.net:27017/<myFirstDatabase>?ssl=true&replicaSet=atlas-kxv22h-shard-0&authSource=admin&retryWrites=true&w=majority`
 ```
-Replace <password> with the password for the <user> user. Replace <myFirstDatabase> with the name of the database that connections will use by default.
+Replace `<password>` with the password for the `<user>` user. Replace `<myFirstDatabase>` with the name of the database that connections will use by default.
 
 ## Development server
 
